@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>まるもち学習アプリ | 無料で学べるドリル集</title>
+<meta name="description" content="スマホで遊べる無料の学習ドリル。SQL・Excel関数・Google Apps Script（GAS）を、実際に書いて動かしながら学べます。登録不要・進捗は自動保存。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: #FFF8EE;
+    color: #4A3428;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 24px;
+  }
+  header { text-align: center; margin-bottom: 8px; }
+  .mochi { font-size: 52px; line-height: 1; }
+  h1 { font-size: 26px; font-weight: 800; margin-top: 10px; letter-spacing: 0.02em; }
+  .sub { font-size: 14px; color: #8A6D5C; margin-top: 6px; line-height: 1.6; }
+  main { width: 100%; max-width: 480px; margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+  a.card {
+    display: block;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 20px 22px;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(74, 52, 40, 0.18);
+    transition: transform 0.08s ease;
+  }
+  a.card:active { transform: scale(0.98); }
+  .card .name { font-size: 21px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+  .card .desc { font-size: 13.5px; line-height: 1.65; margin-top: 8px; opacity: 0.95; }
+  .card .meta { display: inline-block; margin-top: 12px; background: rgba(255,255,255,0.22); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 700; }
+  .card .go { float: right; font-size: 20px; font-weight: 800; opacity: 0.9; }
+  .sql { background: linear-gradient(135deg, #8D6E63, #6D4C41); }
+  .excel { background: linear-gradient(135deg, #12914B, #0B5C2E); }
+  .gas { background: linear-gradient(135deg, #2B7DE1, #1559B0); }
+  .note {
+    width: 100%; max-width: 480px; margin-top: 22px;
+    background: #fff; border: 2px dashed #D9C4AE; border-radius: 16px;
+    padding: 14px 18px; font-size: 13px; line-height: 1.8; color: #6B5240;
+  }
+  footer { margin-top: auto; padding-top: 28px; font-size: 12px; color: #A98F76; text-align: center; line-height: 1.8; }
+</style>
+</head>
+<body>
+  <header>
+    <div class="mochi">🍡</div>
+    <h1>まるもち学習アプリ</h1>
+    <p class="sub">スマホで遊べる、無料の学習ドリル集。<br>書いて・動かして・確かめながら学べます。</p>
+  </header>
+
+  <main>
+    <a class="card sql" href="https://tyrof.github.io/marumochi-sql/">
+      <span class="go">→</span>
+      <div class="name">🗄️ まるもちSQL</div>
+      <p class="desc">データベース言語SQLのドリル。実際にSQLを書いて実行し、結果で判定します。SELECTからJOIN、集計、実務操作まで段階式。</p>
+      <span class="meta">全94レッスン</span>
+    </a>
+
+    <a class="card excel" href="https://tyrof.github.io/marumochi-excel/">
+      <span class="go">→</span>
+      <div class="name">📊 まるもちExcel関数ドリル</div>
+      <p class="desc">Excel関数のドリル。SUM・IF・VLOOKUP・XLOOKUPなど、仕事で使う関数を実際に打ち込んで覚えます。</p>
+      <span class="meta">全43レッスン</span>
+    </a>
+
+    <a class="card gas" href="https://tyrof.github.io/marumochi-gas/">
+      <span class="go">→</span>
+      <div class="name">⚙️ まるもちGASドリル</div>
+      <p class="desc">Google Apps Script（スプレッドシート自動化）の入門ドリル。JavaScriptの基礎からシート操作まで。</p>
+      <span class="meta">第1弾・全11レッスン公開中</span>
+    </a>
+  </main>
+
+  <div class="note">
+    ・すべて<strong>無料・登録不要</strong>です<br>
+    ・進捗はお使いの端末に<strong>自動で保存</strong>されます<br>
+    ・開くときにインターネット接続が必要です
+  </div>
+
+  <footer>
+    作った人：RYO YOKOTA（酒好き蔵人）<br>
+    © RYO YOKOTA
+  </footer>
+</body>
+</html>
