@@ -3,97 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="スマホで遊べる無料の学習ドリルとラム酒ガイド。SQLやWebの仕組みを、実際に書いて動かしながら学べます。登録不要・進捗は自動保存。">
 <title>学ぶ・愉しむアプリ</title>
-<meta name="description" content="スマホで遊べる無料の学習ドリルとラム酒ガイド。SQL・Excel関数を、実際に書いて動かしながら学べます。登録不要・進捗は自動保存。">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
-    background: #FFF8EE;
-    color: #4A3428;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 32px 16px 24px;
-  }
-  header { text-align: center; margin-bottom: 8px; }
-  .mochi { font-size: 52px; line-height: 1; }
-  h1 { font-size: 26px; font-weight: 800; margin-top: 10px; letter-spacing: 0.02em; }
-  .sub { font-size: 14px; color: #8A6D5C; margin-top: 6px; line-height: 1.6; }
-  main { width: 100%; max-width: 480px; margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
-  a.card {
-    display: block;
-    text-decoration: none;
-    border-radius: 20px;
-    padding: 20px 22px;
-    color: #fff;
-    box-shadow: 0 4px 14px rgba(74, 52, 40, 0.18);
-    transition: transform 0.08s ease;
-  }
-  a.card:active { transform: scale(0.98); }
-  .card .name { font-size: 21px; font-weight: 800; display: flex; align-items: center; gap: 10px; }
-  .card .desc { font-size: 13.5px; line-height: 1.65; margin-top: 8px; opacity: 0.95; }
-  .card .meta { display: inline-block; margin-top: 12px; background: rgba(255,255,255,0.22); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; font-weight: 700; }
-  .card .go { float: right; font-size: 20px; font-weight: 800; opacity: 0.9; }
-  .sql { background: linear-gradient(135deg, #8D6E63, #6D4C41); }
-  .excel { background: linear-gradient(135deg, #12914B, #0B5C2E); }
-  .gas { background: linear-gradient(135deg, #2B7DE1, #1559B0); }
-  .web { background: linear-gradient(135deg, #E8590C, #C2410C); }
-  .rum { background: linear-gradient(135deg, #D97706, #B45309); }
-  .catch { background: linear-gradient(135deg, #F48FB1, #D81B60); }
-  .note {
-    width: 100%; max-width: 480px; margin-top: 22px;
-    background: #fff; border: 2px dashed #D9C4AE; border-radius: 16px;
-    padding: 14px 18px; font-size: 13px; line-height: 1.8; color: #6B5240;
-  }
-  footer { margin-top: auto; padding-top: 28px; font-size: 12px; color: #A98F76; text-align: center; line-height: 1.8; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Hiragino Maru Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; color:#4A2B3A; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:36px 16px 28px;
+    background-color:#FFF0F6;
+    background-image: radial-gradient(#FFC7DD 3.2px, transparent 3.6px), radial-gradient(#BDE8FF 3.2px, transparent 3.6px);
+    background-size: 46px 46px; background-position: 0 0, 23px 23px; }
+  header { text-align:center; position:relative; }
+  .deco { font-size:19px; letter-spacing:.5em; color:#FF7BAC; }
+  .mochi { font-size:50px; margin-top:4px; filter:drop-shadow(0 3px 0 #FFD1E3); }
+  h1 { font-size:29px; font-weight:900; margin-top:8px; letter-spacing:.03em; color:#3A2B4A;
+    text-shadow: 2px 2px 0 #FFD93D, -2px -2px 0 #A8E6FF, 0 4px 0 rgba(255,123,172,.35); }
+  .badge { display:inline-block; margin-top:12px; background:#FF5D8F; color:#fff; font-weight:800; font-size:12.5px; padding:5px 14px; border-radius:999px; transform:rotate(-2deg); box-shadow:0 3px 0 #D63A6C; letter-spacing:.06em; }
+  .sub { font-size:13.5px; color:#8A5A72; margin-top:12px; line-height:1.7; font-weight:700; }
+  main { width:100%; max-width:480px; margin-top:26px; display:flex; flex-direction:column; gap:20px; }
+  a.card { display:block; text-decoration:none; color:#3A2B4A; background:#fff; border:3px solid var(--bd); border-radius:22px; padding:20px 22px 18px; position:relative; box-shadow:6px 6px 0 var(--bd); transition:transform .08s ease; }
+  a.card:nth-child(odd) { transform:rotate(-1deg); }
+  a.card:nth-child(even) { transform:rotate(1deg); }
+  a.card:active { transform:scale(.97) rotate(0deg); }
+  a.card::before { content:""; position:absolute; top:-13px; left:50%; transform:translateX(-50%) rotate(-3deg); width:96px; height:24px; background:var(--tape); opacity:.75; border-left:2px dashed rgba(255,255,255,.7); border-right:2px dashed rgba(255,255,255,.7); }
+  .rum { --bd:#FF9EBB; --tape:#FFD93D; } .web { --bd:#7FD4FF; --tape:#B8F1CC; }
+  .sql { --bd:#C3A6FF; --tape:#FFC7DD; } .catch { --bd:#FFB35C; --tape:#A8E6FF; }
+  .card .name { font-size:20px; font-weight:900; line-height:1.4; }
+  .card .desc { font-size:13.5px; line-height:1.65; margin-top:7px; color:#6B4A5E; font-weight:600; }
+  .card .meta { display:inline-block; margin-top:11px; background:var(--bd); color:#fff; border-radius:999px; padding:4px 13px; font-size:12.5px; font-weight:800; transform:rotate(-1.5deg); }
+  .card .go { float:right; font-size:19px; font-weight:900; color:var(--bd); }
+  .card .star { position:absolute; right:14px; bottom:10px; font-size:14px; color:var(--bd); }
+  .note { width:100%; max-width:480px; margin-top:26px; background:#FFF9DB; border:3px dashed #FF9EBB; border-radius:18px; padding:14px 18px; font-size:13px; line-height:1.8; color:#6B4A5E; font-weight:600; transform:rotate(-.5deg); }
+  footer { margin-top:auto; padding-top:28px; font-size:12px; color:#B98AA0; text-align:center; line-height:1.8; font-weight:700; }
 </style>
 </head>
 <body>
   <header>
+    <div class="deco">★ ✦ ★</div>
     <div class="mochi">🍡</div>
     <h1>学ぶ・愉しむアプリ</h1>
+    <div><span class="badge">ぜんぶ無料！登録いらないよ</span></div>
     <p class="sub">スマホで遊べる、無料の学習ドリル集。<br>書いて・動かして・確かめながら学べます。</p>
   </header>
-
   <main>
-
     <a class="card rum" href="https://tyrof.github.io/marumochi-rum/">
       <span class="go">→</span>
       <div class="name">🥃 たる吉と愉しむラム酒さんぽ</div>
       <p class="desc">ラム酒の愉しみ方を、案内役のたる吉と一緒にめぐる読み物ガイド。銘柄の個性や飲み方を知って、今夜の気分に合う一杯が見つかります。</p>
       <span class="meta">全16お話 公開中</span>
+      <span class="star">★</span>
     </a>
     <a class="card web" href="https://tyrof.github.io/marumochi-web/">
       <span class="go">→</span>
       <div class="name">🌐 まるもちWeb入門ドリル</div>
       <p class="desc">Webアプリの仕組みを「場面→判断」の問題で学ぶドリル。URL・HTTP・ステータスコードなど、Webの全体像をつかめます。</p>
       <span class="meta">全11レッスン公開中</span>
+      <span class="star">★</span>
     </a>
     <a class="card sql" href="https://tyrof.github.io/marumochi-sql/">
       <span class="go">→</span>
       <div class="name">🗄️ まるもちSQL</div>
       <p class="desc">データベース言語SQLのドリル。実際にSQLを書いて実行し、結果で判定します。SELECTからJOIN、集計、実務操作まで段階式。</p>
       <span class="meta">全94レッスン</span>
+      <span class="star">★</span>
     </a>
     <a class="card catch" href="https://tyrof.github.io/marumochi-catch/">
       <span class="go">→</span>
       <div class="name">🎮 まるもちキャッチ</div>
       <p class="desc">おまけのミニゲーム。落ちてくるまるもちを30秒で何個キャッチできる？ 息抜きにどうぞ。</p>
       <span class="meta">おまけ・ミニゲーム</span>
+      <span class="star">★</span>
     </a>
   </main>
-
-  <div class="note">
-    ・すべて<strong>無料・登録不要</strong>です<br>
-    ・進捗はお使いの端末に<strong>自動で保存</strong>されます<br>
-    ・開くときにインターネット接続が必要です
-  </div>
-
-  <footer>
-    作った人：RYO YOKOTA（酒好き蔵人）<br>
-    © RYO YOKOTA
-  </footer>
+  <div class="note">・すべて<strong>無料・登録不要</strong>です<br>・進捗はお使いの端末に<strong>自動で保存</strong>されます<br>・開くときにインターネット接続が必要です</div>
+  <footer>作った人：RYO YOKOTA（酒好き蔵人）<br>© RYO YOKOTA</footer>
 </body>
 </html>
